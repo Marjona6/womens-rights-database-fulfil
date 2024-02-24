@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* NavBar */
 .vp-local-header {
   background-color: #42938d !important;
   height: 100px !important;
@@ -130,4 +131,9 @@
   .vp-antd-menu-submenu-selected
   > .vp-antd-menu-submenu-title {
   color: #404080;
+}
+
+/* Body */
+.vp-local-layout .vp-local-body {
+  padding-top: 100px;
 }
