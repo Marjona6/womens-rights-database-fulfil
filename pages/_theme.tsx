@@ -1,6 +1,7 @@
 import React from 'react'
 import { createTheme } from 'vite-pages-theme-doc'
-import '../src/index.css'
+import '../pages/index.css'
+import NavBar from 'src/components/NavBar'
 
 export default createTheme({
   logo: (
@@ -13,17 +14,35 @@ export default createTheme({
       />
     </div>
   ),
+  logoLink: '/',
+  search: false,
   topNavs: [
-    { label: 'Home', path: '/' },
     {
-      label: 'About Us',
-      path: '/about/project',
-      activeIfMatch: '/about',
+      subMenu: 'About Us',
+      children: [
+        { label: 'Project', path: '/about/project' },
+        { label: 'Partners', path: '/about/partners' },
+        { label: 'Contact Us', path: '/about/contact' },
+      ],
     },
     {
-      label: "Migrant Women's Fundamental Rights in the EU",
-      path: '/rights/report',
-      activeIfMatch: '/rights',
+      subMenu: "Migrant Women's Fundamental Rights in the EU",
+      children: [
+        {
+          label:
+            "Women's perspective on the EU charter of fundamental rights (report)",
+          path: '/rights/report',
+        },
+        {
+          label:
+            "Training program on migrant women's fundamental rights protection (training outline)",
+          path: '/rights/training',
+        },
+        {
+          label: 'Info Sheets / Resources / Videos',
+          path: '/rights/resources',
+        },
+      ],
     },
     {
       label: 'Search the Database',
@@ -31,4 +50,5 @@ export default createTheme({
       activeIfMatch: '/search',
     },
   ],
+  sideNavs: [],
 })

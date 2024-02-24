@@ -1,9 +1,8 @@
 import React from 'react'
 
-const Contact = () => {
+const NavBar = () => {
   return (
-    <div>
-      Contact{' '}
+    <div className="bg-green w-full h-[80px] md:h-[100px] fixed top-0 px-6 flex items-center">
       <img
         src="/images/project-logos/white-bg.png"
         alt="FULFIL logo"
@@ -14,4 +13,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default NavBar
