@@ -133,6 +133,15 @@
   color: #404080;
 }
 
+/* This affects the dropdown menus as well, need to fix */
+.vp-antd-menu-item-only-child > span {
+  background: #404080;
+  padding: 16px;
+  border-radius: 24px;
+  color: white;
+  align-items: center;
+}
+
 /* Body */
 .vp-local-layout .vp-local-body {
   padding-top: 100px;
