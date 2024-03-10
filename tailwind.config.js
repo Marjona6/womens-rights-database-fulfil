@@ -7,12 +7,13 @@ export default {
     './pages/*.{js,ts,tsx,tsx}',
   ],
   theme: {
-    colors: {
-      purple: '#404080',
-      green: '#42938D',
-      white: '#fff',
+    extend: {
+      colors: {
+        purple: '#404080',
+        green: '#42938D',
+        white: '#fff',
+      },
     },
-    extend: {},
   },
   plugins: [],
 }
