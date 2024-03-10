@@ -5,41 +5,69 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 // TODO get these items from DB?
 const LANGUAGE_ITEMS = [
+  { value: 'All EU', label: 'All EU' },
+  { value: 'Bulgarian', label: 'Bulgarian' },
+  { value: 'Croatian', label: 'Croatian' },
+  { value: 'Czech', label: 'Czech' },
+  { value: 'Danish', label: 'Danish' },
+  { value: 'Dutch', label: 'Dutch' },
+  { value: 'English', label: 'English' },
+  { value: 'Estonian', label: 'Estonian' },
+  { value: 'Finnish', label: 'Finnish' },
   { value: 'French', label: 'French' },
   { value: 'German', label: 'German' },
-  { value: 'All EU', label: 'All EU' },
+  { value: 'Greek', label: 'Greek' },
+  { value: 'Hungarian', label: 'Hungarian' },
+  { value: 'Irish', label: 'Irish' },
   { value: 'Italian', label: 'Italian' },
+  { value: 'Latvian', label: 'Latvian' },
+  { value: 'Lithuanian', label: 'Lithuanian' },
+  { value: 'Maltese', label: 'Maltese' },
+  { value: 'Polish', label: 'Polish' },
+  { value: 'Portuguese', label: 'Portuguese' },
+  { value: 'Romanian', label: 'Romanian' },
+  { value: 'Slovak', label: 'Slovak' },
+  { value: 'Slovenian', label: 'Slovenian' },
+  { value: 'Spanish', label: 'Spanish' },
+  { value: 'Swedish', label: 'Swedish' },
 ]
-const NATIONALITY_ITEMS = []
-const JURISDICTION_ITEMS = []
 
-const Filters = () => {
-  const [languageValues, setLanguageValues] = React.useState<
-    { value: string; label: string }[]
-  >([])
-  const [nationalityValues, setNationalityValues] = React.useState<
-    { value: string; label: string }[]
-  >([])
-  const [startDate, setStartDate] = React.useState(new Date())
-  const [endDate, setEndDate] = React.useState(new Date())
-  const [jurisdictionValues, setJurisdictionValues] = React.useState<
-    { value: string; label: string }[]
-  >([])
+const Filters = ({
+  languageValues,
+  setLanguageValues,
+  nationalityValues,
+  setNationalityValues,
+  nationalityOptions,
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+  jurisdictionValues,
+  setJurisdictionValues,
+  jurisdictionOptions,
+}) => {
+  // TODO think about this some more; might not need to worry about this here
+  // ... and just handle it when calling the API
+  const handleSetLanguageValues = (vals) => {
+    // console.log(vals)
+    if (vals.includes(LANGUAGE_ITEMS[0])) setLanguageValues(LANGUAGE_ITEMS)
+    else setLanguageValues(vals)
+  }
 
   return (
-    <div className="flex w-screen ml-[-40px] pl-10 items-center h-12 outline">
+    <div className="flex w-screen ml-[-40px] pl-10 items-center h-12">
       <Select
         multi
         placeholder="Language"
         options={LANGUAGE_ITEMS}
-        onChange={(values) => setLanguageValues(values)}
+        onChange={(values) => handleSetLanguageValues(values)}
         values={languageValues}
         style={{ border: 'none' }} // TODO more styling, esp. of options
       />
       <Select
         multi
         placeholder="Nationality of Plaintiff"
-        options={NATIONALITY_ITEMS}
+        options={nationalityOptions}
         onChange={(values) => setNationalityValues(values)}
         values={nationalityValues}
         style={{ border: 'none' }} // TODO more styling, esp. of options
@@ -52,7 +80,7 @@ const Filters = () => {
       <Select
         multi
         placeholder="Jurisdiction"
-        options={JURISDICTION_ITEMS}
+        options={jurisdictionOptions}
         onChange={(values) => setJurisdictionValues(values)}
         values={jurisdictionValues}
         style={{ border: 'none' }} // TODO more styling, esp. of options
