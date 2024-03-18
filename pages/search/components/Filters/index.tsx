@@ -55,7 +55,7 @@ const Filters = ({
   }
 
   return (
-    <div className="flex w-screen ml-[-40px] pl-10 items-center h-12">
+    <div className="flex w-screen ml-[-40px] pl-10 gap-2 items-center h-12">
       <Select
         multi
         placeholder="Language"
@@ -72,11 +72,17 @@ const Filters = ({
         values={nationalityValues}
         style={{ border: 'none' }} // TODO more styling, esp. of options
       />
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-      />
-      <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+      <div className="flex flex-col">
+        <label className="text-xs text-gray-800">Start date</label>
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+        />
+      </div>
+      <div className="flex flex-col">
+        <label className="text-xs text-gray-800">End date</label>
+        <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+      </div>
       <Select
         multi
         placeholder="Jurisdiction"
