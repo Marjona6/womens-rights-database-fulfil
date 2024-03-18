@@ -34,14 +34,26 @@ const SearchPage = () => {
   }, [])
   // subsequent fetches with filtering
   React.useEffect(() => {
+    let filterString = ''
+    // nationality
     let formattedNationalities = ''
-    if (nationalityValues.length > 0)
+    if (nationalityValues.length > 0) {
       formattedNationalities = nationalityValues
-        .map((val) => `plaintiff_ethnicity.eq.${val.value}`)
+        .map((val) => `plaintiff_ethnicity.eq."${val.value}"`)
         .join(',')
-    console.log('formatted', formattedNationalities)
-    if (nationalityValues.length === 0) getCases()
-    else filterCases([formattedNationalities])
+      filterString += formattedNationalities
+    }
+    // jurisdiction
+    let formattedJurisdictions = ''
+    if (jurisdictionValues.length > 0) {
+      formattedJurisdictions = jurisdictionValues
+        .map((val) => `name_of_jurisdiction.eq."${val.value}"`)
+        .join(',')
+      filterString += formattedJurisdictions
+    }
+
+    if (filterString.length === 0) getCases()
+    else filterCases(filterString)
   }, [
     languageValues,
     nationalityValues,
@@ -81,7 +93,7 @@ const SearchPage = () => {
     const { data: cases, error } = await supabase
       .from('cases')
       .select('*')
-      .or(filters[0])
+      .or(filters)
     if (error) console.error(error)
     setCases(cases)
   }
