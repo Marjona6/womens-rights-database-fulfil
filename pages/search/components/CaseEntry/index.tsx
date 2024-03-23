@@ -1,13 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const FIELD_LABEL_STYLE = 'text-gray-500 w-[30%]'
 const FIELD_CONTENT_STYLE = 'w-[70%]'
 
 const CaseEntry = (c) => {
-  //   console.log({ c })
   return (
     <div className="flex flex-col w-full py-10 border-gray-300 border-b-2 gap-y-2 text-black">
-      {/* TODO put link to source here? */}
       <div className="w-full font-bold text-lg">{c.case.party_names}</div>
       <div className="w-full flex">
         <div className={FIELD_LABEL_STYLE}>Case reference:</div>
@@ -55,6 +54,18 @@ const CaseEntry = (c) => {
         <div className={FIELD_CONTENT_STYLE}>{c.case.subject_matter}</div>
       </div>
       <div className="w-full">{c.case.case_summary}</div>
+      {c.case.source ? (
+        <Link
+          to={c.case.source}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-blue-500 cursor-pointer w-fit"
+        >
+          Link to full case
+        </Link>
+      ) : (
+        <p className="text-gray-400">No link available</p>
+      )}
     </div>
   )
 }
