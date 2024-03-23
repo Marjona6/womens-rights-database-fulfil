@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SearchBar from './components/SearchBar'
 import ResultsBar from './components/ResultsBar'
 import Filters from './components/Filters'
@@ -15,11 +15,14 @@ const SearchPage = () => {
   const [nationalityValues, setNationalityValues] = React.useState<
     { value: string; label: string }[]
   >([])
-  const [startDate, setStartDate] = React.useState(new Date())
-  const [endDate, setEndDate] = React.useState(new Date())
+  const [startDate, setStartDate] = React.useState()
+  const [endDate, setEndDate] = React.useState()
   const [jurisdictionValues, setJurisdictionValues] = React.useState<
     { value: string; label: string }[]
   >([])
+
+  // search bar
+  const [searchValue, setSearchValue] = React.useState('')
 
   // filter options
   const [availableNationalities, setAvailableNationalities] = React.useState([])
@@ -28,39 +31,29 @@ const SearchPage = () => {
   // data fetching
   const supabase = createClient(API_URL, API_KEY)
   const [cases, setCases] = React.useState([])
-  // initial fetch
-  React.useEffect(() => {
-    getCases()
-  }, [])
-  // subsequent fetches with filtering
+
   React.useEffect(() => {
     let filterString = ''
+
     // nationality
-    let formattedNationalities = ''
     if (nationalityValues.length > 0) {
-      formattedNationalities = nationalityValues
+      const formattedNationalities = nationalityValues
         .map((val) => `plaintiff_ethnicity.eq."${val.value}"`)
         .join(',')
       filterString += formattedNationalities
     }
+
     // jurisdiction
-    let formattedJurisdictions = ''
     if (jurisdictionValues.length > 0) {
-      formattedJurisdictions = jurisdictionValues
+      const formattedJurisdictions = jurisdictionValues
         .map((val) => `name_of_jurisdiction.eq."${val.value}"`)
         .join(',')
-      filterString += formattedJurisdictions
+      filterString += (filterString ? ',' : '') + formattedJurisdictions
     }
 
-    if (filterString.length === 0) getCases()
-    else filterCases(filterString)
-  }, [
-    languageValues,
-    nationalityValues,
-    startDate,
-    endDate,
-    jurisdictionValues,
-  ])
+    filterCases(filterString, startDate)
+  }, [nationalityValues, startDate, jurisdictionValues])
+
   async function getCases() {
     const { data: cases, error } = await supabase.from('cases').select('*')
 
@@ -89,14 +82,43 @@ const SearchPage = () => {
       : []
     setAvailableJurisdictions(availJurisdictions)
   }
-  async function filterCases(filters) {
-    const { data: cases, error } = await supabase
-      .from('cases')
-      .select('*')
-      .or(filters)
-    if (error) console.error(error)
-    setCases(cases)
+
+  const filterCases = async (filters, sDate) => {
+    let query = supabase.from('cases').select('*')
+
+    if (sDate) {
+      query = query.gte('date_of_decision', sDate.toISOString())
+    }
+
+    if (filters.length > 0) {
+      query = query.or(filters)
+    }
+
+    try {
+      const { data: cases, error } = await query
+
+      if (error) {
+        console.error(error)
+        return
+      }
+
+      setCases(cases)
+    } catch (error) {
+      console.error('Error filtering cases:', error.message)
+    }
   }
+
+  const performTextSearch = (val) => {
+    if (!val) return
+    const filteredCases = cases.filter((c) =>
+      c.case_summary?.toLowerCase().includes(val?.toLowerCase())
+    )
+    setCases(filteredCases)
+  }
+
+  useEffect(() => {
+    performTextSearch(searchValue)
+  }, [searchValue])
 
   const createOptions = (arr) =>
     arr.map((item) => ({ label: item, value: item }))
@@ -114,7 +136,10 @@ const SearchPage = () => {
     <>
       <div className="flex flex-col gap-y-8">
         <div className="mb-14">
-          <SearchBar />
+          <SearchBar
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
         </div>
         <Filters
           languageValues={languageValues}

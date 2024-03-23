@@ -62,7 +62,7 @@ const Filters = ({
         options={LANGUAGE_ITEMS}
         onChange={(values) => handleSetLanguageValues(values)}
         values={languageValues}
-        style={{ border: 'none' }} // TODO more styling, esp. of options
+        style={{ border: 'none', minWidth: '160px' }} // TODO more styling, esp. of options
       />
       <Select
         multi
@@ -70,7 +70,7 @@ const Filters = ({
         options={nationalityOptions}
         onChange={(values) => setNationalityValues(values)}
         values={nationalityValues}
-        style={{ border: 'none' }} // TODO more styling, esp. of options
+        style={{ border: 'none', minWidth: '160px' }} // TODO more styling, esp. of options
       />
       <div className="flex flex-col">
         <label className="text-xs text-gray-800">Start date</label>
@@ -89,7 +89,7 @@ const Filters = ({
         options={jurisdictionOptions}
         onChange={(values) => setJurisdictionValues(values)}
         values={jurisdictionValues}
-        style={{ border: 'none' }} // TODO more styling, esp. of options
+        style={{ border: 'none', minWidth: '160px' }} // TODO more styling, esp. of options
       />
     </div>
   )
