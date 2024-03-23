@@ -5,13 +5,21 @@ const PLACEHOLDER_TEXT =
 
 const SearchBar = ({ searchValue, setSearchValue }) => {
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex w-full justify-center relative">
       <input
         className="w-[70%] border h-12 bg-[#F5F5F5] px-6 py-4 placeholder-black placeholder-opacity-[50%] placeholder-text-xs truncate"
         placeholder={PLACEHOLDER_TEXT}
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
       />
+      {!!searchValue ? (
+        <button
+          className="absolute right-[15vw] top-3 text-gray-500 font-bold px-2"
+          onClick={() => setSearchValue('')}
+        >
+          X
+        </button>
+      ) : null}
     </div>
   )
 }

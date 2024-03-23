@@ -30,6 +30,7 @@ const SearchPage = () => {
 
   // data fetching
   const supabase = createClient(API_URL, API_KEY)
+  const [allCases, setAllCases] = React.useState([])
   const [cases, setCases] = React.useState([])
 
   React.useEffect(() => {
@@ -77,6 +78,7 @@ const SearchPage = () => {
         return
       }
 
+      setAllCases(casesData)
       setCases(casesData)
 
       const availNationalities = casesData?.length
@@ -107,11 +109,13 @@ const SearchPage = () => {
   }
 
   const performTextSearch = (val) => {
-    if (!val) return
-    const filteredCases = cases.filter((c) =>
-      c.case_summary?.toLowerCase().includes(val?.toLowerCase())
-    )
-    setCases(filteredCases)
+    if (val === '') setCases(allCases)
+    else {
+      const filteredCases = cases.filter((c) =>
+        c.case_summary?.toLowerCase().includes(val?.toLowerCase())
+      )
+      setCases(filteredCases)
+    }
   }
 
   useEffect(() => {
