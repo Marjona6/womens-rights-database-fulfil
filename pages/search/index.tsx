@@ -51,43 +51,18 @@ const SearchPage = () => {
       filterString += (filterString ? ',' : '') + formattedJurisdictions
     }
 
-    filterCases(filterString, startDate)
-  }, [nationalityValues, startDate, jurisdictionValues])
+    filterCases(filterString, startDate, endDate)
+  }, [nationalityValues, startDate, endDate, jurisdictionValues])
 
-  async function getCases() {
-    const { data: cases, error } = await supabase.from('cases').select('*')
-
-    if (error) console.error(error)
-    setCases(cases)
-    const availNationalities = cases?.length
-      ? [
-          ...new Set(
-            cases
-              .map((c) => c?.plaintiff_ethnicity)
-              .filter((val) => val !== null && val !== '-')
-              .sort()
-          ),
-        ]
-      : []
-    setAvailableNationalities(availNationalities)
-    const availJurisdictions = cases?.length
-      ? [
-          ...new Set(
-            cases
-              .map((c) => c?.name_of_jurisdiction)
-              .filter((val) => val !== null && val !== '-')
-              .sort()
-          ),
-        ]
-      : []
-    setAvailableJurisdictions(availJurisdictions)
-  }
-
-  const filterCases = async (filters, sDate) => {
+  const filterCases = async (filters, sDate, eDate) => {
     let query = supabase.from('cases').select('*')
 
     if (sDate) {
       query = query.gte('date_of_decision', sDate.toISOString())
+    }
+
+    if (eDate) {
+      query = query.lte('date_of_decision', eDate.toISOString())
     }
 
     if (filters.length > 0) {
@@ -95,14 +70,37 @@ const SearchPage = () => {
     }
 
     try {
-      const { data: cases, error } = await query
+      const { data: casesData, error } = await query
 
       if (error) {
         console.error(error)
         return
       }
 
-      setCases(cases)
+      setCases(casesData)
+
+      const availNationalities = casesData?.length
+        ? [
+            ...new Set(
+              cases
+                .map((c) => c?.plaintiff_ethnicity)
+                .filter((val) => val !== null && val !== '-')
+                .sort()
+            ),
+          ]
+        : []
+      setAvailableNationalities(availNationalities)
+      const availJurisdictions = casesData?.length
+        ? [
+            ...new Set(
+              cases
+                .map((c) => c?.name_of_jurisdiction)
+                .filter((val) => val !== null && val !== '-')
+                .sort()
+            ),
+          ]
+        : []
+      setAvailableJurisdictions(availJurisdictions)
     } catch (error) {
       console.error('Error filtering cases:', error.message)
     }
