@@ -5,8 +5,6 @@ import Filters from './components/Filters'
 import CaseEntry from './components/CaseEntry'
 import Layout from '../../src/components/Layout'
 
-import { API_URL, API_KEY } from '../../api/url'
-
 import { createClient } from '@supabase/supabase-js'
 
 const SearchPage = () => {
@@ -32,7 +30,7 @@ const SearchPage = () => {
   const [withEuCharter, setWithEuCharter] = React.useState(false)
 
   // data fetching
-  const supabase = createClient(API_URL, API_KEY)
+  const supabase = createClient(process.env.API_URL, process.env.API_KEY)
   const [allCases, setAllCases] = React.useState([])
   const [cases, setCases] = React.useState([])
 
