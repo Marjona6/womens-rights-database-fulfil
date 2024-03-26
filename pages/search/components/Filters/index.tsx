@@ -1,5 +1,7 @@
 import React from 'react'
 import Select from 'react-dropdown-select'
+import Toggle from 'react-toggle'
+
 import 'react-datepicker/dist/react-datepicker.css'
 import './Filters.css'
 import CustomDatePicker from '../CustomDatePicker'
@@ -46,6 +48,8 @@ const Filters = ({
   jurisdictionValues,
   setJurisdictionValues,
   jurisdictionOptions,
+  withEuCharter,
+  setWithEuCharter,
 }) => {
   // TODO think about this some more; might not need to worry about this here
   // ... and just handle it when calling the API
@@ -72,7 +76,6 @@ const Filters = ({
         options={nationalityOptions}
         onChange={(values) => setNationalityValues(values)}
         values={nationalityValues}
-        className=".placeholder-red-500"
         style={{
           minWidth: '160px',
           height: '48px',
@@ -114,6 +117,14 @@ const Filters = ({
         style={{ minWidth: '200px', height: '48px' }}
         color="#404080"
       />
+      <label className="flex justify-center text-gray-800">
+        <Toggle
+          defaultChecked={withEuCharter}
+          icons={false}
+          onChange={() => setWithEuCharter(!withEuCharter)}
+        />
+        <span className="ml-2">Use of EU Charter of Fundamental Rights</span>
+      </label>
     </div>
   )
 }

@@ -19,7 +19,8 @@
     "react-datepicker": "^6.2.0",
     "react-dom": "^18.2.0",
     "react-dropdown-select": "^4.11.2",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.21.3",
+    "react-toggle": "^4.1.3"
   },
   "devDependencies": {
     "@mdx-js/react": "^3.0.0",

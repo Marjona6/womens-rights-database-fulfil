@@ -27,6 +27,7 @@ const SearchPage = () => {
   // filter options
   const [availableNationalities, setAvailableNationalities] = React.useState([])
   const [availableJurisdictions, setAvailableJurisdictions] = React.useState([])
+  const [withEuCharter, setWithEuCharter] = React.useState(false)
 
   // data fetching
   const supabase = createClient(API_URL, API_KEY)
@@ -52,10 +53,10 @@ const SearchPage = () => {
       filterString += (filterString ? ',' : '') + formattedJurisdictions
     }
 
-    filterCases(filterString, startDate, endDate)
-  }, [nationalityValues, startDate, endDate, jurisdictionValues])
+    filterCases(filterString, startDate, endDate, withEuCharter)
+  }, [nationalityValues, startDate, endDate, jurisdictionValues, withEuCharter])
 
-  const filterCases = async (filters, sDate, eDate) => {
+  const filterCases = async (filters, sDate, eDate, euCharter) => {
     let query = supabase.from('cases').select('*')
 
     if (sDate) {
@@ -64,6 +65,10 @@ const SearchPage = () => {
 
     if (eDate) {
       query = query.lte('date_of_decision', eDate.toISOString())
+    }
+
+    if (euCharter) {
+      query = query.not('eu_fundamental_rights_charter_articles', 'is', null)
     }
 
     if (filters.length > 0) {
@@ -160,6 +165,8 @@ const SearchPage = () => {
           jurisdictionValues={jurisdictionValues}
           setJurisdictionValues={setJurisdictionValues}
           jurisdictionOptions={jurisdictionOptions}
+          withEuCharter={withEuCharter}
+          setWithEuCharter={setWithEuCharter}
         />
         <ResultsBar numberOfResults={cases?.length} />
       </div>
