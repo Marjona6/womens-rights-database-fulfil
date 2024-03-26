@@ -63,7 +63,8 @@ const Filters = ({
         options={LANGUAGE_ITEMS}
         onChange={(values) => handleSetLanguageValues(values)}
         values={languageValues}
-        style={{ minWidth: '160px', height: '48px' }} // TODO more styling, esp. of options
+        style={{ minWidth: '160px', height: '48px' }}
+        color="#404080"
       />
       <Select
         multi
@@ -76,7 +77,8 @@ const Filters = ({
           minWidth: '160px',
           height: '48px',
           fontSize: '16px !important',
-        }} // TODO more styling, esp. of options
+        }}
+        color="#404080"
       />
       <div className="flex flex-col justify-center border border-[#ccc] h-12 px-[10px]">
         {startDate != null ? (
@@ -109,7 +111,8 @@ const Filters = ({
         options={jurisdictionOptions}
         onChange={(values) => setJurisdictionValues(values)}
         values={jurisdictionValues}
-        style={{ minWidth: '200px', height: '48px' }} // TODO more styling, esp. of options
+        style={{ minWidth: '200px', height: '48px' }}
+        color="#404080"
       />
     </div>
   )
