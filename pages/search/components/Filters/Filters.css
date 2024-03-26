@@ -1,3 +1,7 @@
 .react-dropdown-select input::placeholder {
   font-size: 16px;
 }
+
+.react-datepicker__close-icon::after {
+  background-color: #404080;
+}
