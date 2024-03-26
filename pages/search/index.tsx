@@ -112,8 +112,11 @@ const SearchPage = () => {
   const performTextSearch = (val) => {
     if (val === '') setCases(allCases)
     else {
-      const filteredCases = cases.filter((c) =>
-        c.case_summary?.toLowerCase().includes(val?.toLowerCase())
+      const filteredCases = cases.filter(
+        (c) =>
+          c.case_summary?.toLowerCase().includes(val?.toLowerCase()) ||
+          c.party_names?.toLowerCase().includes(val?.toLowerCase()) ||
+          c.subject_matter?.toLowerCase().includes(val?.toLowerCase())
       )
       setCases(filteredCases)
     }

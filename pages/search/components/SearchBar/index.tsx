@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PLACEHOLDER_TEXT =
-  'Search by keyword, party name, case reference, jurisdiction name, or text in case summary...'
+  'Search by keyword, party name, case reference, or text in case summary...'
 
 const SearchBar = ({ searchValue, setSearchValue }) => {
   return (
