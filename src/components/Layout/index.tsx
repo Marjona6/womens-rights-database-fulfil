@@ -6,7 +6,6 @@ const Layout = ({ children }) => {
       '.vp-antd-menu-item span a[href="/search"]'
     )
     if (menuItem) {
-      console.log('found it', menuItem)
       menuItem.parentElement.classList.add('search-button')
     }
   }, [document])
