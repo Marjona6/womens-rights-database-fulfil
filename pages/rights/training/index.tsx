@@ -1,17 +1,18 @@
 import React from 'react'
+import Layout from '../../../src/components/Layout'
 
-const Project = () => {
+const Training = () => {
   return (
-    <div>
-      Reference
+    <Layout>
+      Training
       <img
         src="/images/project-logos/white-bg.png"
         alt="FULFIL logo"
         height={75}
         width={75}
       />
-    </div>
+    </Layout>
   )
 }
 
-export default Project
+export default Training

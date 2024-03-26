@@ -3,6 +3,8 @@ import SearchBar from './components/SearchBar'
 import ResultsBar from './components/ResultsBar'
 import Filters from './components/Filters'
 import CaseEntry from './components/CaseEntry'
+import Layout from '../../src/components/Layout'
+
 import { API_URL, API_KEY } from '../../api/url'
 
 import { createClient } from '@supabase/supabase-js'
@@ -144,7 +146,7 @@ const SearchPage = () => {
   )
 
   return (
-    <>
+    <Layout>
       <div className="flex flex-col gap-y-8">
         <div className="mb-14">
           <SearchBar
@@ -173,7 +175,7 @@ const SearchPage = () => {
       {cases?.map((c) => (
         <CaseEntry key={c.id} case={c} />
       ))}
-    </>
+    </Layout>
   )
 }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { createTheme } from 'vite-pages-theme-doc'
 import '../pages/index.css'
-import NavBar from 'src/components/NavBar'
 
 export default createTheme({
   logo: (

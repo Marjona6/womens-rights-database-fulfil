@@ -1,16 +1,18 @@
 import React from 'react'
+import Layout from '../../../src/components/Layout'
 
-const NavBar = () => {
+const Report = () => {
   return (
-    <div className="bg-green w-full h-[80px] md:h-[100px] fixed top-0 px-6 flex items-center">
+    <Layout>
+      Report
       <img
         src="/images/project-logos/white-bg.png"
         alt="FULFIL logo"
         height={75}
         width={75}
       />
-    </div>
+    </Layout>
   )
 }
 
-export default NavBar
+export default Report

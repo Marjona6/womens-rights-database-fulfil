@@ -1,8 +1,9 @@
 import React from 'react'
+import Layout from '../../../src/components/Layout'
 
 const Project = () => {
   return (
-    <div>
+    <Layout>
       About the project
       <img
         src="/images/project-logos/white-bg.png"
@@ -10,7 +11,7 @@ const Project = () => {
         height={75}
         width={75}
       />
-    </div>
+    </Layout>
   )
 }
 

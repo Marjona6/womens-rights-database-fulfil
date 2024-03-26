@@ -1,10 +1,10 @@
 import React from 'react'
 import Layout from '../../../src/components/Layout'
 
-const Contact = () => {
+const Resources = () => {
   return (
     <Layout>
-      Contact
+      Resources
       <img
         src="/images/project-logos/white-bg.png"
         alt="FULFIL logo"
@@ -15,4 +15,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Resources
