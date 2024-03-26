@@ -1,0 +1,1 @@
+const e=[{depth:1,text:"Search the European Migrant Women’s Rights Case Law Database",id:"search-the-european-migrant-womens-rights-case-law-database"}];let t;const a=Object.freeze(Object.defineProperty({__proto__:null,onUpdate:t,outline:e},Symbol.toStringTag,{value:"Module"}));export{a as p};
