@@ -1,7 +1,8 @@
 import React from 'react'
 import Select from 'react-dropdown-select'
-import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import './Filters.css'
+import CustomDatePicker from '../CustomDatePicker'
 
 // TODO get these items from DB?
 const LANGUAGE_ITEMS = [
@@ -62,7 +63,7 @@ const Filters = ({
         options={LANGUAGE_ITEMS}
         onChange={(values) => handleSetLanguageValues(values)}
         values={languageValues}
-        style={{ border: 'none', minWidth: '160px' }} // TODO more styling, esp. of options
+        style={{ minWidth: '160px', height: '48px' }} // TODO more styling, esp. of options
       />
       <Select
         multi
@@ -70,26 +71,45 @@ const Filters = ({
         options={nationalityOptions}
         onChange={(values) => setNationalityValues(values)}
         values={nationalityValues}
-        style={{ border: 'none', minWidth: '160px' }} // TODO more styling, esp. of options
+        className=".placeholder-red-500"
+        style={{
+          minWidth: '160px',
+          height: '48px',
+          fontSize: '16px !important',
+        }} // TODO more styling, esp. of options
       />
-      <div className="flex flex-col">
-        <label className="text-xs text-gray-800">Start date</label>
-        <DatePicker
+      <div className="flex flex-col justify-center border border-[#ccc] h-12 px-[10px]">
+        {startDate != null ? (
+          <label className="text-xs text-gray-800">Start date</label>
+        ) : null}
+        <CustomDatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
+          placeholderText="Start date"
+          isClearable
+          closeOnScroll={true}
         />
       </div>
-      <div className="flex flex-col">
-        <label className="text-xs text-gray-800">End date</label>
-        <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+      <div className="flex flex-col justify-center border border-[#ccc] h-12 px-[10px]">
+        {endDate != null ? (
+          <label className="text-xs text-gray-800">End date</label>
+        ) : null}
+        <CustomDatePicker
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+          placeholderText="End date"
+          isClearable
+          closeOnScroll={true}
+        />
       </div>
       <Select
         multi
+        searchable
         placeholder="Jurisdiction"
         options={jurisdictionOptions}
         onChange={(values) => setJurisdictionValues(values)}
         values={jurisdictionValues}
-        style={{ border: 'none', minWidth: '160px' }} // TODO more styling, esp. of options
+        style={{ minWidth: '200px', height: '48px' }} // TODO more styling, esp. of options
       />
     </div>
   )

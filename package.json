@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.39.7",
+    "date-fns": "^3.6.0",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-datepicker": "^6.2.0",
     "react-dom": "^18.2.0",
