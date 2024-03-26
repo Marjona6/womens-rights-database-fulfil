@@ -10,5 +10,5 @@ export default defineConfig({
       pagesDir: path.join(__dirname, 'pages'),
     }),
   ],
-  base: '/womens-rights-database-fulfil',
+  base: '/',
 })
