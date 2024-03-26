@@ -1,12 +1,15 @@
 {
   "name": "womens-rights-database-fulfil",
+  "homepage": "https://Marjona6.github.io/womens-rights-database-fulfil/",
   "version": "1.0.2",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite serve",
     "build": "rimraf dist && vite build --outDir dist && serve -s dist",
-    "ssr": "rimraf dist && vite-pages ssr && serve dist"
+    "ssr": "rimraf dist && vite-pages ssr && serve dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +32,7 @@
     "@types/react": "^18.2.48",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.35",
     "rimraf": "^5.0.5",
     "serve": "^14.2.1",
