@@ -84,7 +84,7 @@ const SearchPage = () => {
       const availNationalities = casesData?.length
         ? [
             ...new Set(
-              cases
+              casesData
                 .map((c) => c?.plaintiff_ethnicity)
                 .filter((val) => val !== null && val !== '-')
                 .sort()
@@ -92,10 +92,11 @@ const SearchPage = () => {
           ]
         : []
       setAvailableNationalities(availNationalities)
+
       const availJurisdictions = casesData?.length
         ? [
             ...new Set(
-              cases
+              casesData
                 .map((c) => c?.name_of_jurisdiction)
                 .filter((val) => val !== null && val !== '-')
                 .sort()
