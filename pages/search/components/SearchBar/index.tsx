@@ -7,7 +7,7 @@ const SearchBar = ({ searchValue, setSearchValue }) => {
   return (
     <div className="flex w-full justify-center relative">
       <input
-        className="w-[70%] border border-[#ccc] h-12 px-6 py-4 placeholder-black placeholder-opacity-[50%] placeholder-text-xs truncate"
+        className="w-[70%] border border-[#ccc] h-12 px-6 py-4 placeholder-black placeholder-opacity-[50%] text-lg truncate"
         placeholder={PLACEHOLDER_TEXT}
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
