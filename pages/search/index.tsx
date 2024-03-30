@@ -115,10 +115,10 @@ const SearchPage = () => {
     }
   }
 
-  const performTextSearch = (val) => {
-    if (val === '') setCases(allCases)
+  const performTextSearch = (val, availableCases) => {
+    if (val === '') setCases(availableCases)
     else {
-      const filteredCases = cases.filter(
+      const filteredCases = availableCases.filter(
         (c) =>
           c.case_summary?.toLowerCase().includes(val?.toLowerCase()) ||
           c.party_names?.toLowerCase().includes(val?.toLowerCase()) ||
@@ -129,8 +129,8 @@ const SearchPage = () => {
   }
 
   useEffect(() => {
-    performTextSearch(searchValue)
-  }, [searchValue])
+    performTextSearch(searchValue, allCases)
+  }, [searchValue, allCases])
 
   const createOptions = (arr) =>
     arr.map((item) => ({ label: item, value: item }))
