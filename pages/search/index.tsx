@@ -4,7 +4,7 @@ import ResultsBar from './components/ResultsBar'
 import Filters from './components/Filters'
 import CaseEntry from './components/CaseEntry'
 import Layout from '../layout'
-import { API_URL, API_KEY } from '../api/url'
+import { API_URL, API_KEY } from 'public/api/url'
 
 import { createClient } from '@supabase/supabase-js'
 

@@ -3,7 +3,6 @@ import Layout from './layout'
 import { Link } from 'react-router-dom'
 
 const Index = () => {
-  console.log('index')
   return (
     <Layout>
       <div className="flex flex-col items-center">
