@@ -1,1 +1,0 @@
-import{a as r,j as e}from"./index-DT7oXlA5.js";const t=()=>{const{userId:s}=r();return e.jsxs("div",{children:[e.jsx("div",{children:"User Main Page"}),e.jsxs("div",{children:["userId: ",s]})]})},n=Object.freeze(Object.defineProperty({__proto__:null,default:t},Symbol.toStringTag,{value:"Module"})),o={};o.main=n;export{o as default};

@@ -1,1 +1,0 @@
-import{r as s,j as e}from"./index-DT7oXlA5.js";const n=({children:r})=>(s.useEffect(()=>{const t=document.querySelector('.vp-antd-menu-item span a[href="/search"]');t&&t.parentElement.classList.add("search-button")},[document]),e.jsx(e.Fragment,{children:r}));export{n as L};
