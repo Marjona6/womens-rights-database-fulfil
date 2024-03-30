@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite serve",
-    "build": "rimraf dist && vite build --outDir dist && serve -s dist",
+    "build": "rimraf dist && vite build --outDir dist",
     "ssr": "rimraf dist && vite-pages ssr && serve dist",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
