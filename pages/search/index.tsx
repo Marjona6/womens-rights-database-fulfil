@@ -3,7 +3,7 @@ import SearchBar from './components/SearchBar'
 import ResultsBar from './components/ResultsBar'
 import Filters from './components/Filters'
 import CaseEntry from './components/CaseEntry'
-import Layout from '../../src/components/Layout'
+import Layout from '../layout'
 import { API_URL, API_KEY } from '../../api/url'
 
 import { createClient } from '@supabase/supabase-js'
