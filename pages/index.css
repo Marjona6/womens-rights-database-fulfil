@@ -144,4 +144,5 @@
 /* Body */
 .vp-local-layout .vp-local-body {
   padding-top: 100px;
+  border: none;
 }
