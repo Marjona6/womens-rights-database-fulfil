@@ -1,6 +1,6 @@
 import React from 'react'
 import { createTheme } from 'vite-pages-theme-doc'
-import '.index.css'
+import './index.css'
 
 export default createTheme({
   logo: (
