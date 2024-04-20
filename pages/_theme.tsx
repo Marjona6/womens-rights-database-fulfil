@@ -19,7 +19,7 @@ export default createTheme({
     {
       subMenu: 'About Us',
       children: [
-        { label: 'Project', path: '/about/project' },
+        { label: 'FULFIL Project', path: '/about/project' },
         { label: 'Partners', path: '/about/partners' },
         { label: 'Contact Us', path: '/about/contact' },
       ],
