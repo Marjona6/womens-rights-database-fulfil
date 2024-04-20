@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../layout'
 
-const Partners = () => {
+const Partners = ({ children }) => {
   return (
     <Layout>
       Partners
@@ -11,6 +11,7 @@ const Partners = () => {
         height={75}
         width={75}
       />
+      {children}
     </Layout>
   )
 }
