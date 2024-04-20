@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overscroll-behavior: none; /* gets rid of "bounce" at bottom of page */
+}
+
 /* NavBar */
 .vp-local-header {
   background-color: #42938d !important;
