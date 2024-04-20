@@ -32,7 +32,7 @@ const Filters = ({
   }
 
   return (
-    <div className="flex flex-wrap w-screen justify-center gap-2 items-center h-fit">
+    <div className="flex flex-wrap w-full justify-center gap-2 items-center h-fit">
       <Select
         multi
         placeholder="Language"

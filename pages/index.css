@@ -10,6 +10,7 @@ body {
 .vp-local-header {
   background-color: #42938d !important;
   height: 100px !important;
+  width: 100vw !important;
   align-items: center !important;
 }
 
