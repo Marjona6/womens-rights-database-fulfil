@@ -3,7 +3,7 @@ import Layout from './layout'
 import { Link } from 'react-router-dom'
 import './index.css'
 
-const Index = () => {
+const Index = ({ children }) => {
   return (
     <Layout>
       <div className="flex flex-col items-center">
@@ -22,6 +22,7 @@ const Index = () => {
           </button>
         </Link>
       </div>
+      <div className="mt-8">{children}</div>
     </Layout>
   )
 }
