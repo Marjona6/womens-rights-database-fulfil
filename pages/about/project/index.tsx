@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../layout'
 
-const Project = () => {
+const Project = ({ children }) => {
   return (
     <Layout>
       About the project
@@ -11,6 +11,7 @@ const Project = () => {
         height={75}
         width={75}
       />
+      <div className="!list-disc">{children}</div>
     </Layout>
   )
 }
