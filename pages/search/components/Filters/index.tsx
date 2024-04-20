@@ -5,35 +5,7 @@ import Toggle from 'react-toggle'
 import 'react-datepicker/dist/react-datepicker.css'
 import './Filters.css'
 import CustomDatePicker from '../CustomDatePicker'
-
-// TODO get these items from DB?
-const LANGUAGE_ITEMS = [
-  { value: 'All EU', label: 'All EU' },
-  { value: 'Bulgarian', label: 'Bulgarian' },
-  { value: 'Croatian', label: 'Croatian' },
-  { value: 'Czech', label: 'Czech' },
-  { value: 'Danish', label: 'Danish' },
-  { value: 'Dutch', label: 'Dutch' },
-  { value: 'English', label: 'English' },
-  { value: 'Estonian', label: 'Estonian' },
-  { value: 'Finnish', label: 'Finnish' },
-  { value: 'French', label: 'French' },
-  { value: 'German', label: 'German' },
-  { value: 'Greek', label: 'Greek' },
-  { value: 'Hungarian', label: 'Hungarian' },
-  { value: 'Irish', label: 'Irish' },
-  { value: 'Italian', label: 'Italian' },
-  { value: 'Latvian', label: 'Latvian' },
-  { value: 'Lithuanian', label: 'Lithuanian' },
-  { value: 'Maltese', label: 'Maltese' },
-  { value: 'Polish', label: 'Polish' },
-  { value: 'Portuguese', label: 'Portuguese' },
-  { value: 'Romanian', label: 'Romanian' },
-  { value: 'Slovak', label: 'Slovak' },
-  { value: 'Slovenian', label: 'Slovenian' },
-  { value: 'Spanish', label: 'Spanish' },
-  { value: 'Swedish', label: 'Swedish' },
-]
+import { LANGUAGE_ITEMS } from './constants'
 
 const Filters = ({
   languageValues,
@@ -60,7 +32,7 @@ const Filters = ({
   }
 
   return (
-    <div className="flex w-screen justify-center ml-[-40px] pl-10 gap-2 items-center h-12">
+    <div className="flex flex-col md:flex-row w-screen justify-center ml-[-40px] pl-10 gap-2 items-center h-fit md:h-12">
       <Select
         multi
         placeholder="Language"
