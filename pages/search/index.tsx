@@ -63,7 +63,14 @@ const SearchPage = () => {
     }
 
     filterCases(filterString, startDate, endDate, withEuCharter)
-  }, [nationalityValues, startDate, endDate, jurisdictionValues, withEuCharter])
+  }, [
+    nationalityValues,
+    startDate,
+    endDate,
+    jurisdictionValues,
+    withEuCharter,
+    languageValues,
+  ])
 
   const filterCases = async (filters, sDate, eDate, euCharter) => {
     let query = supabase.from('cases').select('*')
