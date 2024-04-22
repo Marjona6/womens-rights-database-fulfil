@@ -54,6 +54,14 @@ const SearchPage = () => {
       filterString += (filterString ? ',' : '') + formattedJurisdictions
     }
 
+    // languages
+    if (languageValues.length > 0) {
+      const languageFilter = languageValues
+        .map((lang) => `language_of_decision.cs.{"${lang.value}"}`)
+        .join(', ')
+      filterString += (filterString ? ',' : '') + languageFilter
+    }
+
     filterCases(filterString, startDate, endDate, withEuCharter)
   }, [nationalityValues, startDate, endDate, jurisdictionValues, withEuCharter])
 
