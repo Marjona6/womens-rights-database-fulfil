@@ -23,6 +23,10 @@ body {
   display: none !important;
 }
 
+ul {
+  list-style-type: disc;
+}
+
 :where(
     .css-dev-only-do-not-override-8v0fwp
   ).vp-antd-menu-light.vp-antd-menu-horizontal
