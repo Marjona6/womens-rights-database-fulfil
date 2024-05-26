@@ -19,6 +19,10 @@ body {
   color: white;
 }
 
+.vp-local-outline {
+  display: none !important;
+}
+
 :where(
     .css-dev-only-do-not-override-8v0fwp
   ).vp-antd-menu-light.vp-antd-menu-horizontal
