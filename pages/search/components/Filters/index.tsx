@@ -26,7 +26,6 @@ const Filters = ({
   // TODO think about this some more; might not need to worry about this here
   // ... and just handle it when calling the API
   const handleSetLanguageValues = (vals) => {
-    // console.log(vals)
     if (vals.includes(LANGUAGE_ITEMS[0])) setLanguageValues(LANGUAGE_ITEMS)
     else setLanguageValues(vals)
   }

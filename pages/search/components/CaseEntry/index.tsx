@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const FIELD_LABEL_STYLE = 'text-gray-500 w-[30%]'
-const FIELD_CONTENT_STYLE = 'w-[70%]'
+const FIELD_LABEL_STYLE = 'text-gray-500 w-[30%] min-w-[30%]'
+const FIELD_CONTENT_STYLE = 'w-[70%] max-w-[70%]'
 
 const CaseEntry = (c) => {
   return (
@@ -23,14 +23,16 @@ const CaseEntry = (c) => {
         <div className={FIELD_CONTENT_STYLE}>{c.case.plaintiff_ethnicity}</div>
       </div>
       <div className="w-full flex">
+        <div className={FIELD_LABEL_STYLE}>Country:</div>
+        <div className={FIELD_CONTENT_STYLE}>{c.case.country}</div>
+      </div>
+      <div className="w-full flex">
         <div className={FIELD_LABEL_STYLE}>Name of Jurisdiction:</div>
         <div className={FIELD_CONTENT_STYLE}>{c.case.name_of_jurisdiction}</div>
       </div>
-      {/* TODO: come back to this; language_of_decision is an array; must input
-      manually for now */}
       <div className="w-full flex">
         <div className={FIELD_LABEL_STYLE}>Language of Decision:</div>
-        <div>{c.case.language_of_decision}</div>
+        <div>{c.case.language_of_decision?.join(', ')}</div>
       </div>
       {/* TODO: format this date in some way? */}
       <div className="w-full flex">

@@ -8,6 +8,37 @@ import { API_URL, API_KEY } from '../url'
 
 import { createClient } from '@supabase/supabase-js'
 
+const isEmpty = (value) => {
+  if (value === null || value === false || value === '') {
+    return true
+  }
+  if (Array.isArray(value) && value.length === 0) {
+    return true
+  }
+  if (
+    typeof value === 'object' &&
+    value !== null &&
+    Object.keys(value).length === 0
+  ) {
+    return true
+  }
+  return false
+}
+
+const filterNonEmptyObjects = (arr) => {
+  return arr.filter((obj) => {
+    const objectWithoutIdAndCreatedAt = { ...obj }
+    delete objectWithoutIdAndCreatedAt.id
+    delete objectWithoutIdAndCreatedAt.created_at
+    // Check if every property in the object is empty
+    const allPropertiesEmpty = Object.values(objectWithoutIdAndCreatedAt).every(
+      isEmpty
+    )
+    // Only include objects that have at least one non-empty property
+    return !allPropertiesEmpty
+  })
+}
+
 const SearchPage = () => {
   // filtering
   const [languageValues, setLanguageValues] = React.useState<
@@ -18,6 +49,10 @@ const SearchPage = () => {
   >([])
   const [startDate, setStartDate] = React.useState()
   const [endDate, setEndDate] = React.useState()
+  const [countryValue, setCountryValue] = React.useState<{
+    value: string
+    label: string
+  } | null>(null)
   const [jurisdictionValues, setJurisdictionValues] = React.useState<
     { value: string; label: string }[]
   >([])
@@ -28,6 +63,7 @@ const SearchPage = () => {
   // filter options
   const [availableNationalities, setAvailableNationalities] = React.useState([])
   const [availableJurisdictions, setAvailableJurisdictions] = React.useState([])
+  const [availableCountries, setAvailableCountries] = React.useState<any[]>([])
   const [withEuCharter, setWithEuCharter] = React.useState(false)
 
   // data fetching
@@ -73,7 +109,7 @@ const SearchPage = () => {
   ])
 
   const filterCases = async (filters, sDate, eDate, euCharter) => {
-    let query = supabase.from('cases').select('*')
+    let query = supabase.from('cases2').select('*')
 
     if (sDate) {
       query = query.gte('date_of_decision', sDate.toISOString())
@@ -99,8 +135,8 @@ const SearchPage = () => {
         return
       }
 
-      setAllCases(casesData)
-      setCases(casesData)
+      setAllCases(filterNonEmptyObjects(casesData))
+      setCases(filterNonEmptyObjects(casesData))
 
       const availNationalities = casesData?.length
         ? [
