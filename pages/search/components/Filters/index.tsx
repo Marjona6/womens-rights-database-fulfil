@@ -23,8 +23,8 @@ const Filters = ({
   withEuCharter,
   setWithEuCharter,
   countryOptions,
-  countryValue,
-  setCountryValue,
+  countryValues,
+  setCountryValues,
 }) => {
   // TODO think about this some more; might not need to worry about this here
   // ... and just handle it when calling the API
@@ -85,11 +85,12 @@ const Filters = ({
         />
       </div>
       <Select
+        multi
         searchable
         placeholder="Country"
         options={countryOptions}
-        onChange={(value) => setCountryValue(value)}
-        value={countryValue}
+        onChange={(values) => setCountryValues(values)}
+        values={countryValues}
         style={{ minWidth: '200px', height: '48px' }}
         color="#404080"
       />

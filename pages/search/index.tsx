@@ -49,10 +49,12 @@ const SearchPage = () => {
   >([])
   const [startDate, setStartDate] = React.useState()
   const [endDate, setEndDate] = React.useState()
-  const [countryValue, setCountryValue] = React.useState<{
-    value: string
-    label: string
-  } | null>(null)
+  const [countryValues, setCountryValues] = React.useState<
+    {
+      value: string
+      label: string
+    }[]
+  >([])
   const [jurisdictionValues, setJurisdictionValues] = React.useState<
     { value: string; label: string }[]
   >([])
@@ -82,6 +84,14 @@ const SearchPage = () => {
       filterString += formattedNationalities
     }
 
+    // country
+    if (countryValues.length) {
+      const formattedCountries = countryValues
+        .map((val) => `country.eq."${val.value}"`)
+        .join(',')
+      filterString += formattedCountries
+    }
+
     // jurisdiction
     if (jurisdictionValues.length > 0) {
       const formattedJurisdictions = jurisdictionValues
@@ -106,6 +116,7 @@ const SearchPage = () => {
     jurisdictionValues,
     withEuCharter,
     languageValues,
+    countryValues,
   ])
 
   const filterCases = async (filters, sDate, eDate, euCharter) => {
@@ -236,8 +247,8 @@ const SearchPage = () => {
           withEuCharter={withEuCharter}
           setWithEuCharter={setWithEuCharter}
           countryOptions={countryOptions}
-          countryValue={countryValue}
-          setCountryValue={setCountryValue}
+          countryValues={countryValues}
+          setCountryValues={setCountryValues}
         />
         <ResultsBar numberOfResults={cases?.length} />
       </div>
