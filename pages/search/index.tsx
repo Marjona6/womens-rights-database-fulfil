@@ -161,6 +161,17 @@ const SearchPage = () => {
           ]
         : []
       setAvailableJurisdictions(availJurisdictions)
+      const availCountries = casesData?.length
+        ? [
+            ...new Set(
+              casesData
+                .map((c) => c?.country)
+                .filter((val) => val !== null && val !== '-')
+                .sort()
+            ),
+          ]
+        : []
+      setAvailableCountries(availCountries)
     } catch (error) {
       console.error('Error filtering cases:', error.message)
     }
@@ -195,6 +206,11 @@ const SearchPage = () => {
     [availableJurisdictions]
   )
 
+  const countryOptions = React.useMemo(
+    () => createOptions(availableCountries),
+    [availableCountries]
+  )
+
   return (
     <Layout>
       <div className="flex flex-col gap-y-8">
@@ -219,6 +235,9 @@ const SearchPage = () => {
           jurisdictionOptions={jurisdictionOptions}
           withEuCharter={withEuCharter}
           setWithEuCharter={setWithEuCharter}
+          countryOptions={countryOptions}
+          countryValue={countryValue}
+          setCountryValue={setCountryValue}
         />
         <ResultsBar numberOfResults={cases?.length} />
       </div>

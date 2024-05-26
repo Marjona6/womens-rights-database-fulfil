@@ -22,12 +22,18 @@ const Filters = ({
   jurisdictionOptions,
   withEuCharter,
   setWithEuCharter,
+  countryOptions,
+  countryValue,
+  setCountryValue,
 }) => {
   // TODO think about this some more; might not need to worry about this here
   // ... and just handle it when calling the API
   const handleSetLanguageValues = (vals) => {
-    if (vals.includes(LANGUAGE_ITEMS[0])) setLanguageValues(LANGUAGE_ITEMS)
-    else setLanguageValues(vals)
+    if (vals.includes(LANGUAGE_ITEMS[0])) {
+      const allActualLanguages = [...LANGUAGE_ITEMS]
+      allActualLanguages.shift()
+      setLanguageValues(allActualLanguages)
+    } else setLanguageValues(vals)
   }
 
   return (
@@ -78,6 +84,15 @@ const Filters = ({
           closeOnScroll={true}
         />
       </div>
+      <Select
+        searchable
+        placeholder="Country"
+        options={countryOptions}
+        onChange={(value) => setCountryValue(value)}
+        value={countryValue}
+        style={{ minWidth: '200px', height: '48px' }}
+        color="#404080"
+      />
       <Select
         multi
         searchable
