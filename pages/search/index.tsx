@@ -68,6 +68,9 @@ const SearchPage = () => {
   const [availableCountries, setAvailableCountries] = React.useState<any[]>([])
   const [withEuCharter, setWithEuCharter] = React.useState(false)
 
+  // keep track of first data fetch
+  const [hasFetchedOnce, setHasFetchedOnce] = React.useState(false)
+
   // data fetching
   const supabase = createClient(API_URL, API_KEY)
   const [allCases, setAllCases] = React.useState([])
@@ -165,7 +168,7 @@ const SearchPage = () => {
             ),
           ]
         : []
-      setAvailableNationalities(availNationalities)
+      if (!hasFetchedOnce) setAvailableNationalities(availNationalities)
 
       const availJurisdictions = casesData?.length
         ? [
@@ -177,7 +180,9 @@ const SearchPage = () => {
             ),
           ]
         : []
+      // always limit available jurisdictions based on selected country
       setAvailableJurisdictions(availJurisdictions)
+
       const availCountries = casesData?.length
         ? [
             ...new Set(
@@ -188,7 +193,9 @@ const SearchPage = () => {
             ),
           ]
         : []
-      setAvailableCountries(availCountries)
+      if (!hasFetchedOnce) setAvailableCountries(availCountries)
+
+      setHasFetchedOnce(true)
     } catch (error) {
       console.error('Error filtering cases:', error.message)
     }
