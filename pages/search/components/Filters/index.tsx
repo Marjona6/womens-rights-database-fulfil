@@ -36,6 +36,16 @@ const Filters = ({
     } else setLanguageValues(vals)
   }
 
+  const handleClearAll = () => {
+    setLanguageValues([])
+    setCountryValues([])
+    setEndDate(null)
+    setStartDate(null)
+    setWithEuCharter(false)
+    setJurisdictionValues([])
+    setNationalityValues([])
+  }
+
   return (
     <div className="flex flex-wrap w-full justify-center gap-2 items-center h-fit">
       <Select
@@ -89,7 +99,10 @@ const Filters = ({
         searchable
         placeholder="Country"
         options={countryOptions}
-        onChange={(values) => setCountryValues(values)}
+        onChange={(values) => {
+          setCountryValues(values)
+          setJurisdictionValues([])
+        }}
         values={countryValues}
         style={{ minWidth: '200px', height: '48px' }}
         color="#404080"
@@ -112,6 +125,12 @@ const Filters = ({
         />
         <span className="ml-2">Use of EU Charter of Fundamental Rights</span>
       </label>
+      <button
+        className="border-none bg-transparent text-blue-500 cursor-pointer"
+        onClick={handleClearAll}
+      >
+        Clear All
+      </button>
     </div>
   )
 }
