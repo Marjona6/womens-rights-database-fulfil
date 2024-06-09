@@ -138,7 +138,13 @@ const SearchPage = () => {
       query = query.or(filters)
     }
 
+    // hack to get results to work as desired
+    const modifyUrl = (url) => {
+      const modifiedUrl = url.replace(/select=\*&or=/, 'select=*&and=')
+      return modifiedUrl
+    }
     try {
+      query.url.href = modifyUrl(query.url.href)
       const { data: casesData, error } = await query
 
       if (error) {
