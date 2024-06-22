@@ -45,6 +45,7 @@ const Filters = ({
     setEndDate(null)
     setStartDate(null)
     setWithEuCharter(false)
+    setEuCharterArticles([])
     setJurisdictionValues([])
     setNationalityValues([])
   }
@@ -122,7 +123,7 @@ const Filters = ({
       />
       <label className="flex justify-center text-gray-800">
         <Toggle
-          defaultChecked={withEuCharter}
+          checked={withEuCharter}
           icons={false}
           onChange={() => setWithEuCharter(!withEuCharter)}
         />

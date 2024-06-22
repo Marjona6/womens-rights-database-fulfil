@@ -39,6 +39,14 @@ const filterNonEmptyObjects = (arr) => {
   })
 }
 
+type FiltersType = {
+  plaintiff_ethnicity?: string[]
+  country?: string[]
+  name_of_jurisdiction?: string[]
+  language_of_decision?: string
+  eu_fundamental_rights_charter_articles?: string
+}
+
 const SearchPage = () => {
   // filtering
   const [languageValues, setLanguageValues] = React.useState<
@@ -82,41 +90,29 @@ const SearchPage = () => {
   const [cases, setCases] = React.useState([])
 
   React.useEffect(() => {
-    let filterString = ''
+    let filters: FiltersType = {}
 
-    // nationality
     if (nationalityValues.length > 0) {
-      const formattedNationalities = nationalityValues
-        .map((val) => `plaintiff_ethnicity.eq."${val.value}"`)
-        .join(',')
-      filterString += formattedNationalities
+      filters.plaintiff_ethnicity = nationalityValues.map((val) => val.value)
     }
-
-    // country
-    if (countryValues.length) {
-      const formattedCountries = countryValues
-        .map((val) => `country.eq."${val.value}"`)
-        .join(',')
-      filterString += formattedCountries
+    if (countryValues.length > 0) {
+      filters.country = countryValues.map((val) => val.value)
     }
-
-    // jurisdiction
     if (jurisdictionValues.length > 0) {
-      const formattedJurisdictions = jurisdictionValues
-        .map((val) => `name_of_jurisdiction.eq."${val.value}"`)
-        .join(',')
-      filterString += (filterString ? ',' : '') + formattedJurisdictions
+      filters.name_of_jurisdiction = jurisdictionValues.map((val) => val.value)
     }
-
-    // languages
     if (languageValues.length > 0) {
-      const languageFilter = languageValues
-        .map((lang) => `language_of_decision.cs.{"${lang.value}"}`)
-        .join(', ')
-      filterString += (filterString ? ',' : '') + languageFilter
+      filters.language_of_decision = languageValues
+        .map((val) => val.value)
+        .join(',')
+    }
+    if (euCharterArticles.length > 0) {
+      filters.eu_fundamental_rights_charter_articles = euCharterArticles
+        .map((val) => val.value)
+        .join(',')
     }
 
-    filterCases(filterString, startDate, endDate, withEuCharter)
+    filterCases(filters, startDate, endDate, withEuCharter)
   }, [
     nationalityValues,
     startDate,
@@ -125,9 +121,10 @@ const SearchPage = () => {
     withEuCharter,
     languageValues,
     countryValues,
+    euCharterArticles,
   ])
 
-  const filterCases = async (filters, sDate, eDate, euCharter) => {
+  const filterCases = async (filters: FiltersType, sDate, eDate, euCharter) => {
     let query = supabase.from('cases2').select('*')
 
     if (sDate) {
@@ -140,19 +137,34 @@ const SearchPage = () => {
 
     if (euCharter) {
       query = query.not('eu_fundamental_rights_charter_articles', 'is', null)
+      query = query.not('eu_fundamental_rights_charter_articles', 'eq', '{}') // checks for empty array
     }
 
-    if (filters.length > 0) {
-      query = query.or(filters)
+    if (filters.plaintiff_ethnicity?.length > 0) {
+      query = query.in('plaintiff_ethnicity', filters.plaintiff_ethnicity)
     }
 
-    // hack to get results to work as desired
-    const modifyUrl = (url) => {
-      const modifiedUrl = url.replace(/select=\*&or=/, 'select=*&and=')
-      return modifiedUrl
+    if (filters.country?.length > 0) {
+      query = query.in('country', filters.country)
     }
+
+    if (filters.name_of_jurisdiction?.length > 0) {
+      query = query.in('name_of_jurisdiction', filters.name_of_jurisdiction)
+    }
+
+    if (filters.language_of_decision?.length > 0) {
+      query = query.overlaps('language_of_decision', [
+        filters.language_of_decision,
+      ])
+    }
+
+    if (filters.eu_fundamental_rights_charter_articles?.length > 0) {
+      query = query.contains('eu_fundamental_rights_charter_articles', [
+        filters.eu_fundamental_rights_charter_articles,
+      ])
+    }
+
     try {
-      query.url.href = modifyUrl(query.url.href)
       const { data: casesData, error } = await query
 
       if (error) {
@@ -185,7 +197,6 @@ const SearchPage = () => {
             ),
           ]
         : []
-      // always limit available jurisdictions based on selected country
       setAvailableJurisdictions(availJurisdictions)
 
       const availCountries = casesData?.length
@@ -239,8 +250,10 @@ const SearchPage = () => {
     performTextSearch(searchValue, allCases)
   }, [searchValue, allCases])
 
-  const createOptions = (arr) =>
-    arr.map((item) => ({ label: item, value: item }))
+  const createOptions = (arr) => {
+    const uniqueItems = new Set(arr.map((item) => item.trim()))
+    return Array.from(uniqueItems).map((item) => ({ label: item, value: item }))
+  }
 
   const nationalityOptions = React.useMemo(
     () => createOptions(availableNationalities),
