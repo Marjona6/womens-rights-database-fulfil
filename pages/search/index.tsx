@@ -58,6 +58,9 @@ const SearchPage = () => {
   const [jurisdictionValues, setJurisdictionValues] = React.useState<
     { value: string; label: string }[]
   >([])
+  const [euCharterArticles, setEuCharterArticles] = React.useState<
+    { value: string; label: string }[]
+  >([])
 
   // search bar
   const [searchValue, setSearchValue] = React.useState('')
@@ -66,6 +69,8 @@ const SearchPage = () => {
   const [availableNationalities, setAvailableNationalities] = React.useState([])
   const [availableJurisdictions, setAvailableJurisdictions] = React.useState([])
   const [availableCountries, setAvailableCountries] = React.useState<any[]>([])
+  const [availableEuCharterArticles, setAvailableEuCharterArticles] =
+    React.useState([])
   const [withEuCharter, setWithEuCharter] = React.useState(false)
 
   // keep track of first data fetch
@@ -195,6 +200,22 @@ const SearchPage = () => {
         : []
       if (!hasFetchedOnce) setAvailableCountries(availCountries)
 
+      const availEuCharterArticles = casesData?.length
+        ? [
+            ...new Set(
+              casesData
+                .flatMap((c) => c?.eu_fundamental_rights_charter_articles)
+                .filter(
+                  (article, index, self) => self.indexOf(article) === index
+                )
+            ),
+          ]
+            .sort((a, b) => a - b)
+            .map((article) => article.toString())
+        : []
+
+      if (!hasFetchedOnce) setAvailableEuCharterArticles(availEuCharterArticles)
+
       setHasFetchedOnce(true)
     } catch (error) {
       console.error('Error filtering cases:', error.message)
@@ -235,6 +256,11 @@ const SearchPage = () => {
     [availableCountries]
   )
 
+  const euCharterOptions = React.useMemo(
+    () => createOptions(availableEuCharterArticles),
+    [availableEuCharterArticles]
+  )
+
   return (
     <Layout>
       <div className="flex flex-col gap-y-8">
@@ -262,6 +288,9 @@ const SearchPage = () => {
           countryOptions={countryOptions}
           countryValues={countryValues}
           setCountryValues={setCountryValues}
+          euCharterArticles={euCharterArticles}
+          setEuCharterArticles={setEuCharterArticles}
+          euCharterOptions={euCharterOptions}
         />
         <ResultsBar numberOfResults={cases?.length} />
       </div>

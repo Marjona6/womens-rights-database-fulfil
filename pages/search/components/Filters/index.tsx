@@ -25,6 +25,9 @@ const Filters = ({
   countryOptions,
   countryValues,
   setCountryValues,
+  euCharterArticles,
+  setEuCharterArticles,
+  euCharterOptions,
 }) => {
   // TODO think about this some more; might not need to worry about this here
   // ... and just handle it when calling the API
@@ -125,6 +128,18 @@ const Filters = ({
         />
         <span className="ml-2">Use of EU Charter of Fundamental Rights</span>
       </label>
+      {withEuCharter ? (
+        <Select
+          multi
+          searchable
+          placeholder="EU Charter Articles"
+          options={euCharterOptions}
+          onChange={(values) => setEuCharterArticles(values)}
+          values={euCharterArticles}
+          style={{ minWidth: '200px', height: '48px' }}
+          color="#404080"
+        />
+      ) : null}
       <button
         className="border-none bg-transparent text-blue-500 cursor-pointer"
         onClick={handleClearAll}
