@@ -27,105 +27,72 @@ ul {
   list-style-type: disc;
 }
 
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
+.vp-antd-menu-light.vp-antd-menu-horizontal
   > .vp-antd-menu-item-selected::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-item-selected::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
+.vp-antd-menu-light.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-selected::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-selected::after {
   border: none;
 }
 
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
-  > .vp-antd-menu-item-open::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light.vp-antd-menu-horizontal > .vp-antd-menu-item-open::after,
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-item-open::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
-  > .vp-antd-menu-submenu-open::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light.vp-antd-menu-horizontal > .vp-antd-menu-submenu-open::after,
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-open::after {
   border: none;
 }
 
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
-  > .vp-antd-menu-item-active::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light.vp-antd-menu-horizontal > .vp-antd-menu-item-active::after,
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-item-active::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
+.vp-antd-menu-light.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-active::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-active::after {
   border: none;
 }
 
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
-  > .vp-antd-menu-item:hover::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light.vp-antd-menu-horizontal > .vp-antd-menu-item:hover::after,
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-item:hover::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
+.vp-antd-menu-light.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu:hover::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu:hover::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
-  > .vp-antd-menu-item-active::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light.vp-antd-menu-horizontal > .vp-antd-menu-item-active::after,
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-item-active::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
+.vp-antd-menu-light.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-active::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-active::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
-  > .vp-antd-menu-item-open::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light.vp-antd-menu-horizontal > .vp-antd-menu-item-open::after,
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-item-open::after,
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
-  > .vp-antd-menu-submenu-open::after,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light.vp-antd-menu-horizontal > .vp-antd-menu-submenu-open::after,
+.vp-antd-menu-light
   > .vp-antd-menu.vp-antd-menu-horizontal
   > .vp-antd-menu-submenu-open::after {
   border: none;
 }
 
-:where(
-    .css-dev-only-do-not-override-8v0fwp
-  ).vp-antd-menu-light.vp-antd-menu-horizontal
+.vp-antd-menu-light.vp-antd-menu-horizontal
   > .vp-antd-menu-item-only-child:hover::after {
   border: none;
 }
@@ -136,10 +103,10 @@ ul {
   transition: none !important;
 }
 
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light
   .vp-antd-menu-submenu-selected
   > .vp-antd-menu-submenu-title,
-:where(.css-dev-only-do-not-override-8v0fwp).vp-antd-menu-light
+.vp-antd-menu-light
   > .vp-antd-menu
   .vp-antd-menu-submenu-selected
   > .vp-antd-menu-submenu-title {
@@ -152,6 +119,26 @@ ul {
   border-radius: 24px;
   color: white;
   align-items: center;
+}
+
+.vp-antd-dropdown.vp-antd-dropdown-placement-bottomRight {
+  max-width: 300px;
+}
+
+/* Adjust nav menu positioning and styling on mobile devices */
+@media (max-width: 768px) {
+  .vp-antd-dropdown-menu-submenu.vp-antd-dropdown-menu-submenu-popup.vp-antd-dropdown-menu.vp-antd-dropdown-menu-light.vp-antd-dropdown-menu-submenu-placement-rightTop {
+    max-width: 300px;
+    top: 200px !important;
+    left: unset !important;
+    right: 20px !important;
+  }
+  .vp-antd-dropdown-menu-submenu.vp-antd-dropdown-menu-submenu-popup.vp-antd-dropdown-menu.vp-antd-dropdown-menu-light.vp-antd-dropdown-menu-submenu-placement-leftTop {
+    max-width: 300px;
+    top: 200px !important;
+    left: unset !important;
+    right: 20px !important;
+  }
 }
 
 /* Body */
