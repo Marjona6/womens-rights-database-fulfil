@@ -18,56 +18,56 @@ const Layout = ({ children }) => {
       <div className="absolute bg-gray-300 h-[200px] w-screen bottom-0 left-0 px-6 md:px-10 pb-10">
         <div className="w-full flex items-center justify-between gap-x-2 md:gap-x-4 mt-4 flex-wrap">
           <img
-            src="/public/images/project-logos/white-bg.png"
+            src="/images/project-logos/white-bg.png"
             alt="FULFIL logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/public/images/partner-logos/ewla.png"
+            src="/images/partner-logos/ewla.png"
             alt="EWLA logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/public/images/partner-logos/iroko.png"
+            src="/images/partner-logos/iroko.png"
             alt="IROKO logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/public/images/partner-logos/chiara-parolin.jpeg"
+            src="/images/partner-logos/chiara-parolin.jpeg"
             alt="Parolin logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/public/images/partner-logos/olympe.png"
+            src="/images/partner-logos/olympe.png"
             alt="Olympe logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/public/images/partner-logos/enomw-small.jpg"
+            src="/images/partner-logos/enomw-small.jpg"
             alt="ENoMW logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/public/images/partner-logos/acf.png"
+            src="/images/partner-logos/acf.png"
             alt="ACF logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/public/images/eu-emblems/vertical/PNG/EN V Co-funded by_PANTONE.png"
+            src="/images/eu-emblems/vertical/PNG/EN V Co-funded by_PANTONE.png"
             alt="EU emblem"
             height={100}
             width={100}
