@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react' // you can also use @vitejs/plugin-reac
 import pages from 'vite-plugin-react-pages'
 
 export default defineConfig({
+  base: '/womens-rights-database-fulfil/',
   plugins: [
     react(),
     pages({
