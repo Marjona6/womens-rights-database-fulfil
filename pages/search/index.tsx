@@ -125,7 +125,7 @@ const SearchPage = () => {
   ])
 
   const filterCases = async (filters: FiltersType, sDate, eDate, euCharter) => {
-    let query = supabase.from('cases2').select('*')
+    let query = supabase.from('cases').select('*')
 
     if (sDate) {
       query = query.gte('date_of_decision', sDate.toISOString())
