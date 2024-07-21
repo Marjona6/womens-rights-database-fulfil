@@ -15,4 +15,3 @@ Figma designs [here](https://www.figma.com/file/767XB59pLbvqbEav3RhJmF/FULFIL-De
 `npm run ssr` The app is built into a static site (Static-Site Generation) and served.
 
 ---
-test
