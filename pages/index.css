@@ -4,6 +4,7 @@
 
 body {
   overscroll-behavior: none; /* gets rid of "bounce" at bottom of page */
+  text-align: justify;
 }
 
 /* NavBar */
