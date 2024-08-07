@@ -25,6 +25,13 @@ const Layout = ({ children }) => {
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
+            src="/images/ENoMW_transparent.png"
+            alt="ENoMW logo"
+            height={100}
+            width={100}
+            className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
+          />
+          <img
             src="/images/partner-logos/ewla.png"
             alt="EWLA logo"
             height={100}
@@ -48,13 +55,6 @@ const Layout = ({ children }) => {
           <img
             src="/images/partner-logos/olympe.png"
             alt="Olympe logo"
-            height={100}
-            width={100}
-            className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
-          />
-          <img
-            src="/images/ENoMW_transparent.png"
-            alt="ENoMW logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
