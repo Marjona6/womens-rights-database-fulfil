@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
       <div className="absolute bg-gray-300 h-[200px] w-screen bottom-0 left-0 px-6 md:px-10 pb-10">
         <div className="w-full flex items-center justify-between gap-x-2 md:gap-x-4 mt-4 flex-wrap">
           <img
-            src="/images/project-logos/white-bg.png"
+            src="/images/FULFIL_transparent.png"
             alt="FULFIL logo"
             height={100}
             width={100}
@@ -53,7 +53,7 @@ const Layout = ({ children }) => {
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/partner-logos/enomw-small.jpg"
+            src="/images/ENoMW_transparent.png"
             alt="ENoMW logo"
             height={100}
             width={100}
