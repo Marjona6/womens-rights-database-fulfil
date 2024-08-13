@@ -15,59 +15,59 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="mb-[240px]">{children}</div>
-      <div className="absolute bg-gray-300 h-[200px] w-screen bottom-0 left-0 px-6 md:px-10 pb-10">
+      <div className="absolute bg-[#404080] h-[200px] w-screen bottom-0 left-0 px-6 md:px-10 pb-10">
         <div className="w-full flex items-center justify-between gap-x-2 md:gap-x-4 mt-4 flex-wrap">
           <img
-            src="/images/FULFIL_transparent.png"
+            src="/images/dark-bg/FULFIL.png"
             alt="FULFIL logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/ENoMW_transparent.png"
+            src="/images/dark-bg/ENOMW.png"
             alt="ENoMW logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/partner-logos/ewla.png"
+            src="/images/dark-bg/EWLA.png"
             alt="EWLA logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/partner-logos/iroko.png"
+            src="/images/dark-bg/IROKO.png"
             alt="IROKO logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/partner-logos/chiara-parolin.jpeg"
+            src="/images/dark-bg/PAROLIN.png"
             alt="Parolin logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/partner-logos/olympe.png"
+            src="/images/dark-bg/OLYMPE.png"
             alt="Olympe logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/partner-logos/acf.png"
+            src="/images/dark-bg/ACF.png"
             alt="ACF logo"
             height={100}
             width={100}
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
           <img
-            src="/images/eu-emblems/vertical/PNG/EN V Co-funded by_PANTONE.png"
+            src="/images/eu-emblems/vertical/PNG/EN V Co-funded by_NEG.png"
             alt="EU emblem"
             height={100}
             width={100}
