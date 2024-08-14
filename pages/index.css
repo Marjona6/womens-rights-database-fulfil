@@ -28,6 +28,15 @@ ul {
   list-style-type: disc;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border: 0 !important;
+}
+
 .vp-antd-menu-light.vp-antd-menu-horizontal
   > .vp-antd-menu-item-selected::after,
 .vp-antd-menu-light
