@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
             className="w-[50px] sm:w-[65px] md:w-[72px] lg:w-[100px]"
           />
         </div>
-        <div className="flex md:gap-x-10 justify-between md:justify-start absolute bottom-10 text-xs w-[calc(100%-48px)] md:w-[calc(100%-80px)]">
+        <div className="flex md:gap-x-10 justify-between md:justify-start absolute bottom-10 text-xs w-[calc(100%-48px)] md:w-[calc(100%-80px)] text-gray-200">
           <div>Copyright ©2024 FULFIL</div>
           <Link to="/legal-and-privacy" className="underline">
             Legal and Privacy Information
