@@ -28,17 +28,15 @@ export default createTheme({
       subMenu: "Migrant Women's Fundamental Rights in the EU",
       children: [
         {
-          label:
-            "Women's perspective on the EU charter of fundamental rights (report)",
+          label: 'Women’s Rights Perspective on the EU Charter Report',
           path: '/rights/report',
         },
         {
-          label:
-            "Training program on migrant women's fundamental rights protection (training outline)",
+          label: 'Training for Legal Practitioners and CSO',
           path: '/rights/training',
         },
         {
-          label: 'Info Sheets / Resources / Videos',
+          label: 'Additional Resources',
           path: '/rights/resources',
         },
       ],
