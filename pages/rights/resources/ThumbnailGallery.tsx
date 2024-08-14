@@ -67,7 +67,7 @@ const ThumbnailGallery = () => {
         {pdfFiles.map((pdf) => (
           <button
             key={pdf.src}
-            className="bg-[#404080] text-white py-2 px-4 rounded-md hover:bg-[#6060a0] focus:outline-none"
+            className="bg-[#404080] text-white py-2 px-4 rounded-md hover:bg-[#6060a0] min-h-[90px] focus:outline-none"
             onClick={() => handleButtonClick(pdf)}
           >
             {pdf.title
