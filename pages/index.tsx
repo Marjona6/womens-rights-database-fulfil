@@ -17,7 +17,7 @@ const Index = ({ children }) => {
           Welcome to the European Migrant Women's Rights Case Law Database
         </h1>
         <Link to="/search">
-          <button className="bg-purple text-white p-4 rounded-full min-w-80">
+          <button className="bg-purple text-white p-4 rounded-full min-w-80 hover:bg-lightpurple">
             Search the Database
           </button>
         </Link>

@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         purple: '#404080',
+        lightpurple: '#6060a0',
         green: '#42938D',
         white: '#fff',
       },

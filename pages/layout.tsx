@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="mb-[240px]">{children}</div>
-      <div className="absolute bg-[#404080] h-[200px] w-screen bottom-0 left-0 px-6 md:px-10 pb-10">
+      <div className="absolute bg-purple h-[200px] w-screen bottom-0 left-0 px-6 md:px-10 pb-10">
         <div className="w-full flex items-center justify-between gap-x-1 mt-4 flex-wrap">
           <img
             src="/images/dark-bg/FULFIL.png"

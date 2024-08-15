@@ -129,6 +129,11 @@ h6 {
   border-radius: 24px;
   color: white;
   align-items: center;
+  transition: color 0.3s ease;
+}
+
+.search-button:hover {
+  background: #6060a0;
 }
 
 .vp-antd-dropdown.vp-antd-dropdown-placement-bottomRight {
