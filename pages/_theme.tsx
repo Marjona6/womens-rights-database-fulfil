@@ -39,6 +39,10 @@ export default createTheme({
           label: 'Additional Resources',
           path: '/rights/resources',
         },
+        {
+          label: 'Submit a Case',
+          path: '/rights/submit-a-case',
+        },
       ],
     },
     {
