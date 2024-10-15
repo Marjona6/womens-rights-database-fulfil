@@ -29,16 +29,6 @@ const Filters = ({
   setEuCharterArticles,
   euCharterOptions,
 }) => {
-  // TODO think about this some more; might not need to worry about this here
-  // ... and just handle it when calling the API
-  const handleSetLanguageValues = (vals) => {
-    if (vals.includes(LANGUAGE_ITEMS[0])) {
-      const allActualLanguages = [...LANGUAGE_ITEMS]
-      allActualLanguages.shift()
-      setLanguageValues(allActualLanguages)
-    } else setLanguageValues(vals)
-  }
-
   const handleClearAll = () => {
     setLanguageValues([])
     setCountryValues([])
@@ -56,7 +46,7 @@ const Filters = ({
         multi
         placeholder="Language"
         options={LANGUAGE_ITEMS}
-        onChange={(values) => handleSetLanguageValues(values)}
+        onChange={(values) => setLanguageValues(values)}
         values={languageValues}
         style={{ minWidth: '160px', height: '48px' }}
         color="#404080"
